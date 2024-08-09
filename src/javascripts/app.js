@@ -6,3 +6,4 @@ const app = Application.start()
 
 app.register("hello", HelloController)
 app.register("search", SearchController)
+

@@ -1,7 +1,7 @@
 import { Controller } from '@hotwired/stimulus'; 
 export default class extends Controller {
   static targets = ["searchBar", "keyword"]
-  connect() {    
+  connect() {
     console.log('search connected')
   }
 
