@@ -6,7 +6,7 @@
   "scripts": {
     "watch:css": "npx tailwindcss build -i src/stylesheets/app.css -o assets/theme.css -w",
     "build:css": "npx tailwindcss build -i src/stylesheets/app.css -o assets/theme.css",
-    "build:js": "./node_modules/.bin/esbuild src/javascripts/app.js --outfile=assets/page.js",
+    "build:js": "./node_modules/.bin/esbuild src/javascripts/app.js --outfile=assets/page.js --bundle",
     "watch:js": "./node_modules/.bin/esbuild src/javascripts/app.js --outfile=assets/page.js --watch --bundle",
     "watch:all": "concurrently 'yarn run watch:css' 'yarn run watch:js'"
   },
