@@ -23,6 +23,6 @@ jobs:
       - name: Archive production artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: theme file
+          name: ${{ github.ref_name }}
           path: |
             ${{ github.ref_name }}.zip
