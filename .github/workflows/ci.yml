@@ -16,6 +16,8 @@ jobs:
       - name: Create release.zip
         run: ./create-release.sh release
       - name: Get Tag
+        if: startsWith(github.event.ref, 'refs/tags/v')
         run: |
           echo "Tag is ${{ github.ref_name }}"
           echo "Event is: ${{ github.event.ref }}"
+          run: ./create-release.sh ${{ github.ref_name }}
