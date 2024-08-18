@@ -15,3 +15,7 @@ jobs:
           cmd: install # will run `yarn install` command
       - name: Create release.zip
         run: ./create-release.sh release
+      - name: Get Tag
+        run: |
+          echo "Tag is ${{ github.ref_name }}"
+          echo "Event is: ${{ github.event.ref }}"
