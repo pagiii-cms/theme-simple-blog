@@ -20,4 +20,4 @@ jobs:
         run: |
           echo "Tag is ${{ github.ref_name }}"
           echo "Event is: ${{ github.event.ref }}"
-          run: ./create-release.sh ${{ github.ref_name }}
+          ./create-release.sh ${{ github.ref_name }}
