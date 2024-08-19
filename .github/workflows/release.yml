@@ -19,8 +19,7 @@ jobs:
         uses: borales/actions-yarn@v5
         with:
           cmd: install
-      - name: Create Release From Tag
-        if: startsWith(github.event.ref, 'refs/tags/v')
+      - name: Create Release
         run: |
           echo "Tag: ${{ github.ref_name }}"
           echo "Event is: ${{ github.event.ref }}"
