@@ -26,6 +26,7 @@ jobs:
           ./create-release.sh ${{ github.ref_name }}
           ls -al
           gh release upload ${{github.event.release.tag_name}} ${{ github.ref_name }}.zip
-
+        env:
+          GH_TOKEN: ${{ github.token }}
 
 
