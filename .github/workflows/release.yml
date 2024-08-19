@@ -1,4 +1,10 @@
-on: push
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,7 +18,7 @@ jobs:
       - name: Yarn install
         uses: borales/actions-yarn@v5
         with:
-          cmd: install # will run `yarn install` command
+          cmd: install
       - name: Create Release From Tag
         if: startsWith(github.event.ref, 'refs/tags/v')
         run: |
@@ -20,15 +26,7 @@ jobs:
           echo "Event is: ${{ github.event.ref }}"
           ./create-release.sh ${{ github.ref_name }}
           ls -al
-      - name: Archive production artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: ${{ github.ref_name }}
-          path: |
-            layout/*.liquid
-            assets/*.*
-            sections/*.liquid
-            snippets/*.liquid
-            templates/*.json
+          gh release upload ${{github.event.release.tag_name}} ${{ github.ref_name }}.zip
+
 
 
